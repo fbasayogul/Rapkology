@@ -1,38 +1,41 @@
-import data from "@/data/data.json"
+import data from '@/data/data.json'
 
 export const Favori = () => {
   const favori = data.filter((item) =>
-    item.attributes?.tags?.includes("Ayın Videoları")
+    item.attributes?.tags?.includes('Ayın Videoları')
   )
 
   return (
-    <section className="w-full pt-20 flex justify-center">
-      <div className="container flex flex-col items-center justify-center">
+    <section className="flex w-full justify-center pt-20">
+      <div className="container flex flex-col items-center justify-center max-md:!pl-0">
         <div className="w-full">
-          <div className="bg-white flex items-center gap-x-8 w-fit pl-24 pr-36 py-9 rounded-br-full">
-            <img src="/icon/youtube-logo.svg" />
-            <img src="/icon/spotify-logo.svg" />
+          <div className="flex w-fit items-center gap-x-8 rounded-br-full bg-white py-9 pr-36 pl-24 max-md:py-5 max-md:pr-14 max-md:pl-16">
+            <img src="/icon/youtube-logo.svg" className="max-md:w-[60%]" />
+            <img src="/icon/spotify-logo.svg" className="max-md:w-[60%]" />
           </div>
         </div>
-        <div className="w-full flex items-center justify-between">
-          <h2 className="text-5xl font-semibold">Ayın Favorileri</h2>
-          <ul className="flex items-center w-1/2 overflow-x-scroll overflow-y-hidden gap-x-12">
+        <div className="flex w-full items-center justify-between max-md:flex-col">
+          <h2 className="text-5xl font-semibold max-md:py-10 max-md:text-center max-md:text-4xl">
+            Ayın <br className="min-md:hidden" />
+            Favorileri
+          </h2>
+          <ul className="grid auto-cols-[274px] grid-flow-col gap-x-12 overflow-x-scroll overflow-y-hidden pb-10 max-md:w-2/3 md:flex md:w-1/2 md:items-center md:gap-x-12 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#F0E74D] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#2A2A2A]">
             {favori.map((item, index) => (
               <li key={index} className="relative">
-                <div className="bg-[#2A2A2A] relative h-[264px] shrink-0 w-[274px] overflow-hidden flex items-center">
+                <div className="relative flex w-[274px] shrink-0 items-center overflow-hidden bg-[#2A2A2A] max-md:flex max-md:h-full max-md:flex-col max-md:py-10 md:h-[264px]">
                   <div
-                    className="!bg-cover !bg-center !bg-no-repeat w-[184px] h-[184px] -rotate-12 shrink-0 -ml-32"
+                    className="h-[184px] w-[184px] shrink-0 -rotate-12 !bg-cover !bg-center !bg-no-repeat md:-ml-32"
                     style={{ background: `url('${item.attributes.img}')` }}
                   ></div>
-                  <div className="flex flex-1 items-center flex-col">
-                    <p className="bg-[#323232] py-1.5 px-2.5 rounded-2xl">
+                  <div className="flex flex-1 flex-col items-center max-md:pt-10 md:gap-y-5">
+                    <p className="rounded-2xl bg-[#323232] px-2.5 py-1.5">
                       Top 10 <b>({index + 1}. Sıra)</b>
                     </p>
-                    <p className="text-center px-4">{item.attributes.title}</p>
+                    <p className="px-4 text-center">{item.attributes.title}</p>
                   </div>
                 </div>
                 <div
-                  className="flex justify-start absolute -bottom-1 h-7 w-full bg-repeat-x z-10 rotate-2"
+                  className="absolute -bottom-1 z-10 flex h-7 w-full rotate-2 justify-start bg-repeat-x"
                   style={{ backgroundImage: "url('/img/yellow.svg')" }}
                 ></div>
               </li>

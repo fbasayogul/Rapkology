@@ -1,27 +1,27 @@
-"use client"
+'use client'
 
-import data from "@/data/data.json"
-import Link from "next/link"
-import { Button } from "../Button"
+import data from '@/data/data.json'
+import Link from 'next/link'
+import { Button } from '../Button'
 
 export const Trends = () => {
   const trend = data.filter((item) => item.attributes?.trends === false)
 
   return (
-    <section className="mt-10 w-full flex justify-center">
+    <section className="mt-10 flex w-full justify-center">
       <div className="container">
         <div className="flex items-center gap-x-6">
-          <h2 className="text-5xl text-white font-bold"> TRENDLER </h2>
+          <h2 className="text-5xl font-bold text-white"> TRENDLER </h2>
           <img src="/icon/trend.svg" />
         </div>
-        <ul className="grid grid-cols-3 mt-20 gap-x-5 gap-y-12">
+        <ul className="mt-20 grid grid-cols-3 gap-x-5 gap-y-12 max-lg:grid-cols-2 max-sm:grid-cols-1">
           {trend.map((item, index) => (
             <li key={index} className="flex items-start gap-x-14">
-              <p className="text-[#2A2A2A] text-5xl font-semibold">
-                {index + 1 < 10 ? "0" : null}
+              <p className="text-5xl font-semibold text-[#2A2A2A]">
+                {index + 1 < 10 ? '0' : null}
                 {index + 1}
               </p>
-              <div className="flex flex-col h-full flex-1">
+              <div className="flex h-full flex-1 flex-col">
                 <div className="flex items-center gap-x-2">
                   <img
                     src={item.attributes.img}
@@ -29,14 +29,14 @@ export const Trends = () => {
                   />
                   <p>{item.attributes.authors}</p>
                 </div>
-                <h3 className="py-5 font-semibold text-2xl uppercase">
+                <h3 className="py-5 text-2xl font-semibold uppercase">
                   {item.attributes.title}
                 </h3>
                 <div className="mt-auto flex flex-col">
-                  <span className="w-full h-px bg-[#3B3B3B]" />
+                  <span className="h-px w-full bg-[#3B3B3B]" />
                   <Link
                     href={item.attributes.slug}
-                    className="text-white pt-5 text-base font-normal"
+                    className="pt-5 text-base font-normal text-white"
                   >
                     Daha Fazla Oku
                   </Link>
@@ -45,7 +45,7 @@ export const Trends = () => {
             </li>
           ))}
         </ul>
-        <div className="flex justify-center mt-20">
+        <div className="mt-20 flex justify-center">
           <Button
             variant="skew"
             skewColor="bg-white text-base"
