@@ -39,11 +39,18 @@ export const Footer: React.FC<FooterProps> = ({
     },
   ]
   return (
-    <footer className={clsx('flex w-full justify-center', className)}>
+    <footer
+      className={clsx(
+        'flex w-full justify-center pt-20 pb-14',
+        className,
+        variant === 'mini' ? '!py-0' : null
+      )}
+    >
       <div
         className={clsx(
-          'container grid',
-          variant === 'mini' ? 'grid-cols-1' : 'grid-cols-2'
+          'container grid max-lg:gap-y-10',
+          variant === 'mini' ? 'grid-cols-1' : 'grid-cols-2',
+          className
         )}
       >
         <div className="flex flex-col gap-y-12">
@@ -55,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({
           </Link>
           <span
             className={clsx(
-              'text-2xl font-semibold text-white',
+              'text-2xl font-semibold text-white max-lg:text-xl',
               variant === 'mini' ? 'text-4xl' : ''
             )}
           >
@@ -80,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
         <div
           className={clsx(
-            'flex w-full justify-end',
+            'flex w-full justify-end max-lg:justify-start',
             variant === 'mini' ? 'justify-start' : null
           )}
         >
@@ -99,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
             <ul
               className={clsx(
-                'flex items-center gap-x-[40px]',
+                'flex items-center gap-x-[40px] max-md:flex-wrap max-md:gap-y-5',
                 variant === 'mini' ? 'grid grid-cols-3 gap-y-6' : null
               )}
             >

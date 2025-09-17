@@ -9,9 +9,15 @@ export const Favori = () => {
     <section className="flex w-full justify-center pt-20">
       <div className="container flex flex-col items-center justify-center max-md:!pl-0">
         <div className="w-full">
-          <div className="flex w-fit items-center gap-x-8 rounded-br-full bg-white py-9 pr-36 pl-24 max-md:py-5 max-md:pr-14 max-md:pl-16">
-            <img src="/icon/youtube-logo.svg" className="max-md:w-[60%]" />
-            <img src="/icon/spotify-logo.svg" className="max-md:w-[60%]" />
+          <div className="flex w-fit items-center gap-x-8 rounded-br-full bg-white py-9 pr-36 pl-24 max-md:py-5 max-md:pr-12 max-md:pl-12">
+            <img
+              src="/icon/youtube-logo.svg"
+              className="max-md:w-[60%] max-sm:w-[45%]"
+            />
+            <img
+              src="/icon/spotify-logo.svg"
+              className="max-md:w-[60%] max-sm:w-[45%]"
+            />
           </div>
         </div>
         <div className="flex w-full items-center justify-between max-md:flex-col">

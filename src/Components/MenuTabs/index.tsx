@@ -10,16 +10,24 @@ type MenuItemProps = {
 export const MenuTabs = ({
   selectedMenu,
   setSelectedMenu,
+  title = true,
 }: {
+  title?: boolean
   selectedMenu: string
   setSelectedMenu: (value: string) => void
 }) => {
   return (
     <div className="h-fit">
-      <h2 className="pb-6 text-4xl font-semibold text-white">
+      <h2
+        className={clsx(
+          title
+            ? 'pb-6 text-4xl font-semibold text-white max-md:text-3xl'
+            : 'hidden'
+        )}
+      >
         NE GÖRMEK İSTERSİN?
       </h2>
-      <ul className="flex w-full items-center gap-2.5 max-md:overflow-x-scroll max-md:whitespace-nowrap md:flex-wrap">
+      <ul className="flex w-full items-center gap-2.5 [-ms-overflow-style:none] [scrollbar-width:none] max-md:max-w-[calc(100vw-100px)] max-md:overflow-x-scroll max-md:whitespace-nowrap max-sm:max-w-[calc(100vw-60px)] md:flex-wrap">
         {MenuItem.map((item, index) => (
           <button
             key={index}

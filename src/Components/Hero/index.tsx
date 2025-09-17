@@ -38,6 +38,7 @@ export const Hero = () => {
     <div className="relative w-full">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
+        color="white"
         className="max-h-[800px] max-2xl:max-h-[700px] max-xl:max-h-[650px] max-md:!hidden"
         spaceBetween={30}
         slidesPerView={1}

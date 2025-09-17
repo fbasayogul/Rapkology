@@ -26,10 +26,13 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-x-8 max-lg:grid-cols-1 lg:gap-x-16">
             <div className="flex w-full items-center justify-between pb-10 min-lg:hidden">
               <div className="flex items-center gap-x-6">
-                <h2 className="text-5xl font-bold text-white"> KEŞFET </h2>
+                <h2 className="text-5xl font-bold text-white max-md:text-4xl">
+                  {' '}
+                  KEŞFET{' '}
+                </h2>
                 <img src="/icon/explore.svg" />
               </div>
-              <div className="flex items-center gap-x-5">
+              <div className="flex items-center gap-x-5 max-md:hidden">
                 <button type="button">
                   <img src="/icon/search-bar.svg" />
                 </button>
@@ -54,7 +57,10 @@ export default function Home() {
             <div className="col-span-8 grid max-lg:order-2 max-lg:col-span-1">
               <div className="flex w-full items-center justify-between max-lg:hidden">
                 <div className="flex items-center gap-x-6">
-                  <h2 className="text-5xl font-bold text-white"> KEŞFET </h2>
+                  <h2 className="text-5xl font-bold text-white max-md:text-4xl">
+                    {' '}
+                    KEŞFET{' '}
+                  </h2>
                   <img src="/icon/explore.svg" />
                 </div>
                 <div className="flex items-center gap-x-5">

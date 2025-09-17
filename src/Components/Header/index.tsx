@@ -1,18 +1,24 @@
 import Link from 'next/link'
 import { Button } from '../Button'
+import clsx from 'clsx'
 
 interface MenuItem {
   name: string
   link: string
 }
 
-export const Header = () => {
+export const Header = ({ className }: { className?: string }) => {
   return (
-    <header className="top-0 z-[500] flex h-20 w-full items-center justify-center border-b border-[#2A2A2A] bg-[#12121210] max-md:border-0 min-lg:absolute">
+    <header
+      className={clsx(
+        'top-0 z-[500] flex h-20 w-full items-center justify-center border-b border-[#2A2A2A] bg-[#12121210] max-md:border-0 min-lg:absolute',
+        className
+      )}
+    >
       <div className="container flex items-center">
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center">
-            <Link href={'/'} className="min-w-[180px]">
+            <Link href={'/'} className="min-w-[180px] max-md:w-[180px]">
               <img src="/img/logo.svg" alt="Rapkology Logo" />
             </Link>
             <ul className="flex items-center gap-x-4 pl-8 max-md:hidden min-lg:gap-x-[30px] min-lg:pl-24">
@@ -48,8 +54,8 @@ export const Header = () => {
 
 export const MenuData: MenuItem[] = [
   {
-    name: 'HABERLER',
-    link: '/haberler',
+    name: 'BLOG',
+    link: '/blog',
   },
   {
     name: 'ETKİNLİKLER',
