@@ -58,8 +58,8 @@ export const MenuData: MenuItem[] = [
     link: '/blog',
   },
   {
-    name: 'ETKİNLİKLER',
-    link: '/etkinlikler',
+    name: 'BLOG DETAY',
+    link: '/blog-detail',
   },
   {
     name: 'MÜZİKLER',
