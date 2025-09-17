@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Button } from '../Button'
 import clsx from 'clsx'
+import Image from 'next/image'
 
 interface MenuItem {
   name: string
@@ -11,7 +12,7 @@ export const Header = ({ className }: { className?: string }) => {
   return (
     <header
       className={clsx(
-        'top-0 z-[500] flex h-20 w-full items-center justify-center border-b border-[#2A2A2A] bg-[#12121210] max-md:border-0 min-lg:absolute',
+        'border-background-900 top-0 z-[500] flex h-20 w-full items-center justify-center border-b bg-[#12121210] max-md:border-0 min-lg:absolute',
         className
       )}
     >
@@ -34,7 +35,12 @@ export const Header = ({ className }: { className?: string }) => {
           </div>
           <div className="flex items-center gap-x-5 max-md:hidden min-lg:gap-x-9">
             <button type="button" className="max-lg:hidden">
-              <img src="/icon/search-bar.svg" alt="Search Bar" />
+              <Image
+                src="/icon/search-bar.svg"
+                alt="search-bar"
+                width="24"
+                height="22"
+              />
             </button>
             <Button
               variant="default"
@@ -44,7 +50,12 @@ export const Header = ({ className }: { className?: string }) => {
             />
           </div>
           <button type="button" className="min-md:hidden">
-            <img src="/icon/menu-list.svg" alt="Menu" />
+            <Image
+              src="/icon/menu-list.svg"
+              alt="trend"
+              width="32"
+              height="14"
+            />
           </button>
         </div>
       </div>

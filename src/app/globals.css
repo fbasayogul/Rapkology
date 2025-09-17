@@ -7,6 +7,16 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+@theme {
+  --color-primary: #f0e74d;
+  --color-dark: #121212;
+  --color-background-900: #2a2a2a;
+  --color-line: #3b3b3b;
+  --color-card: #323232;
+  --color-text-light: #5c5c5c;
+  --color-twitch: #864cf6;
+  --color-dark-alt: #222123;
+}
 
 @theme inline {
   --color-background: var(--background);

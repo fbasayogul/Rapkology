@@ -51,7 +51,7 @@ export const ExploreBox = ({
             ></div>
             <p
               className={clsx(
-                'pt-7 font-light text-[#3B3B3B]',
+                'text-line pt-7 font-light',
                 variant === 'blog' ? 'pb-5' : null
               )}
             >
@@ -88,7 +88,7 @@ export const ExploreBox = ({
                 ? item.attributes.desc.substring(0, 120) + '...'
                 : item.attributes.desc}
             </p>
-            <span className="mt-6 h-px w-full bg-[#3B3B3B]" />
+            <span className="bg-line mt-6 h-px w-full" />
             <Link
               href={item.attributes.slug}
               className={clsx(

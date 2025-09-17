@@ -3,15 +3,15 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import data from '@/data/data.json'
+import Image from 'next/image'
 
 export const BlogHero = () => {
   const trend = data.filter((item) => item.attributes?.trends === false)
-  console.log(trend)
 
   return (
     <section className="w-full">
       <div
-        className="flex w-full justify-center bg-[#F0E74D] bg-contain bg-repeat pb-40"
+        className="bg-primary flex w-full justify-center bg-contain bg-repeat pb-40"
         style={{
           backgroundImage:
             'url("/img/metal-texture.png"), url("/img/style.png")',
@@ -21,14 +21,25 @@ export const BlogHero = () => {
         }}
       >
         <div className="container pt-16">
-          <div className="flex items-center gap-x-5 pb-9 text-sm text-[#121212] max-md:hidden">
+          <div className="text-dark flex items-center gap-x-5 pb-9 text-sm max-md:hidden">
             <p className="uppercase">Anasayfa</p>
-            <img src="/icon/right-arrow2.svg" className="text-[#121212]" />
+
+            <Image
+              src="/icon/right-arrow2.svg"
+              alt="right-arrow2"
+              width="6"
+              height="9"
+            />
             <p className="uppercase">Blog</p>
-            <img src="/icon/right-arrow2.svg" className="text-[#121212]" />
+            <Image
+              src="/icon/right-arrow2.svg"
+              alt="right-arrow2"
+              width="6"
+              height="9"
+            />
             <p className="uppercase">LOREM IPSUM DOLOR ... AMET</p>
           </div>
-          <h2 className="pb-6 text-6xl font-semibold text-[#121212] max-md:hidden">
+          <h2 className="text-dark pb-6 text-6xl font-semibold max-md:hidden">
             BLOG
           </h2>
 
@@ -40,10 +51,6 @@ export const BlogHero = () => {
                   spaceBetween={30}
                   slidesPerView={1}
                   autoplay={{ delay: 5000 }}
-                  pagination={{
-                    clickable: true,
-                    el: '.deneme',
-                  }}
                   loop
                 >
                   {trend.map((item, index) => (
@@ -59,11 +66,16 @@ export const BlogHero = () => {
                             <p className="text-4xl font-semibold text-white uppercase">
                               {item.attributes.title.substring(0, 15)}
                             </p>
-                            <img src="/icon/play.svg" />
+                            <Image
+                              src="/icon/play.svg"
+                              alt="play"
+                              width="65"
+                              height="65"
+                            />
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
-                          <p className="mt-4 text-2xl font-bold text-[#121212] uppercase">
+                          <p className="text-dark mt-4 text-2xl font-bold uppercase">
                             {item.attributes.title}
                           </p>
                         </div>
@@ -84,7 +96,7 @@ export const BlogHero = () => {
                     className="max-w-[230px] max-2xl:max-w-[200px] max-xl:max-w-full max-md:max-w-[185px]"
                     alt={item.attributes.title}
                   />
-                  <p className="max-md:xl text-2xl font-semibold text-[#121212] uppercase max-2xl:text-xl max-xl:text-lg max-sm:text-base max-sm:font-medium">
+                  <p className="max-md:xl text-dark text-2xl font-semibold uppercase max-2xl:text-xl max-xl:text-lg max-sm:text-base max-sm:font-medium">
                     {item.attributes.title}
                   </p>
                 </div>

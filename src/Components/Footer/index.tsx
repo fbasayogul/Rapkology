@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { MenuData } from '../Header'
+import Image from 'next/image'
 
 type FooterProps = {
   variant?: 'default' | 'mini'
@@ -10,6 +11,8 @@ type FooterProps = {
 type SocialMediaProps = {
   img: string
   link: string
+  width: number
+  height: number
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -20,22 +23,32 @@ export const Footer: React.FC<FooterProps> = ({
     {
       img: 'facebook',
       link: '/',
+      width: 13,
+      height: 23,
     },
     {
       img: 'x',
       link: '/',
+      width: 21,
+      height: 17,
     },
     {
       img: 'discord',
       link: '/',
+      width: 25,
+      height: 19,
     },
     {
       img: 'spotify',
       link: '/',
+      width: 26,
+      height: 27,
     },
     {
       img: 'youtube',
       link: '/',
+      width: 27,
+      height: 19,
     },
   ]
   return (
@@ -58,7 +71,11 @@ export const Footer: React.FC<FooterProps> = ({
             href={'/'}
             className={clsx(variant === 'mini' ? 'hidden' : null)}
           >
-            <img src="/img/logo.svg" className="max-w-[250px]" />
+            <img
+              src="/img/logo.svg"
+              className="max-w-[250px]"
+              alt="rapkology-logo"
+            />
           </Link>
           <span
             className={clsx(
@@ -68,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({
           >
             GELİŞMELERDEN İLK SEN HABERDAR OL!
           </span>
-          <div className="flex w-[80%] items-center gap-x-2 border-b border-[#3B3B3B]">
+          <div className="border-line flex w-[80%] items-center gap-x-2 border-b">
             <input
               type="text"
               className="w-full bg-transparent pb-5 pl-3 outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-white"
@@ -78,10 +95,13 @@ export const Footer: React.FC<FooterProps> = ({
               type="button"
               className="flex shrink-0 cursor-pointer items-center gap-x-3 pr-1 pb-5"
             >
-              <span className="text-sm font-semibold text-[#F0E74D]">
-                GÖNDER
-              </span>
-              <img src="/icon/right-arrow.svg" />
+              <span className="text-primary text-sm font-semibold">GÖNDER</span>
+              <Image
+                src="/icon/right-arrow.svg"
+                alt="right-arrow"
+                width="12"
+                height="13"
+              />
             </button>
           </div>
         </div>
@@ -100,7 +120,12 @@ export const Footer: React.FC<FooterProps> = ({
             >
               {SocialMedia.map((icon, index) => (
                 <Link href={icon.link} key={index}>
-                  <img src={`/icon/${icon.img}.svg`} alt={icon.img} />
+                  <Image
+                    src={`/icon/${icon.img}.svg`}
+                    alt={icon.img}
+                    width={icon.width}
+                    height={icon.height}
+                  />
                 </Link>
               ))}
             </div>
@@ -116,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </li>
               ))}
             </ul>
-            <span className="text-sm font-light text-[#5C5C5C]">
+            <span className="text-text-light text-sm font-light">
               © RAPKOLOGY All Rights Are Reserved 2022.
             </span>
           </div>

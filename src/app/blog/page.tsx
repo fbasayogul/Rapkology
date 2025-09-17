@@ -3,11 +3,11 @@
 import { BlogHero } from '@/Components/BlogHero'
 import { Button } from '@/Components/Button'
 import { Clips } from '@/Components/Clips'
-import { Explore } from '@/Components/Explore'
 import { ExploreBox } from '@/Components/ExploreBox'
 import { Footer } from '@/Components/Footer'
 import { Header } from '@/Components/Header'
 import { MenuItem, MenuTabs } from '@/Components/MenuTabs'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Blog() {
@@ -15,8 +15,8 @@ export default function Blog() {
   const [list, setList] = useState('list')
 
   return (
-    <main className="bg-[#121212]">
-      <Header className="!relative !border-0 !bg-[#121212]" />
+    <main className="bg-dark">
+      <Header className="!bg-dark !relative !border-0" />
       <BlogHero />
       <section
         className="flex w-full flex-col items-center justify-center bg-no-repeat pb-20"
@@ -35,11 +35,21 @@ export default function Blog() {
               <h2 className="text-5xl font-bold text-white max-md:text-4xl">
                 KEŞFET
               </h2>
-              <img src="/icon/explore.svg" />
+              <Image
+                src="/icon/explore.svg"
+                alt="explore"
+                width="42"
+                height="42"
+              />
             </div>
             <div className="flex items-center gap-x-5 max-lg:hidden">
               <button type="button">
-                <img src="/icon/search-bar.svg" />
+                <Image
+                  src="/icon/search-bar.svg"
+                  alt="search-bar"
+                  width="24"
+                  height="22"
+                />
               </button>
               <button
                 type="button"
@@ -47,7 +57,7 @@ export default function Blog() {
                   setList('list')
                 }}
               >
-                <img src="/icon/list.svg" />
+                <Image src="/icon/list.svg" alt="list" width="25" height="20" />
               </button>
               <button
                 type="button"
@@ -55,7 +65,12 @@ export default function Blog() {
                   setList('list-2')
                 }}
               >
-                <img src="/icon/list-2.svg" />
+                <Image
+                  src="/icon/list-2.svg"
+                  alt="list"
+                  width="25"
+                  height="20"
+                />
               </button>
             </div>
           </div>

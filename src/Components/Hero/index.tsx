@@ -35,7 +35,7 @@ export const Hero = () => {
   ]
 
   return (
-    <div className="relative w-full">
+    <section className="relative w-full">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         color="white"
@@ -62,7 +62,7 @@ export const Hero = () => {
                   <div
                     className={clsx(
                       'flex h-full max-w-[666px] flex-col items-start justify-center text-start max-xl:max-w-[500px] max-lg:justify-start max-md:max-w-[334px]',
-                      swiper.theme === 'light' ? 'text-[#121212]' : 'text-white'
+                      swiper.theme === 'light' ? 'text-dark' : 'text-white'
                     )}
                   >
                     <h1 className="w-full text-start text-6xl leading-[80px] font-bold max-xl:text-5xl max-xl:leading-14 max-lg:text-center max-lg:text-4xl max-md:text-3xl max-md:leading-10 max-md:font-semibold">
@@ -75,11 +75,7 @@ export const Hero = () => {
                       href={swiper.link}
                       className="max-lg:flex max-lg:w-full max-lg:justify-center"
                     >
-                      <Button
-                        variant="skew"
-                        text="Devamını Oku"
-                        className="cursor-pointer"
-                      />
+                      <Button variant="skew" text="Devamını Oku" />
                     </Link>
                   </div>
                 </div>
@@ -103,7 +99,7 @@ export const Hero = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi{' '}
+                nisi
               </h3>
               <Link
                 href={'/'}
@@ -117,6 +113,7 @@ export const Hero = () => {
         <img
           src="/img/hip-hop-singer.png"
           className="w-full scale-200 object-cover object-center pt-5"
+          alt="hip-hop-singer"
         />
         <div
           className="z-10 flex h-[200px] w-full justify-start bg-repeat-x min-md:hidden"
@@ -127,6 +124,6 @@ export const Hero = () => {
         className="absolute -bottom-5 z-10 flex h-[200px] w-full justify-start bg-repeat-x max-md:hidden"
         style={{ backgroundImage: "url('/img/black.svg')" }}
       ></div>
-    </div>
+    </section>
   )
 }

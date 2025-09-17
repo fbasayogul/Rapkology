@@ -1,10 +1,8 @@
-import data from '@/data/data.json'
 import clsx from 'clsx'
-import { useState } from 'react'
 
 type MenuItemProps = {
   name: string
-  key: string
+  id: string
 }
 
 export const MenuTabs = ({
@@ -17,7 +15,7 @@ export const MenuTabs = ({
   setSelectedMenu: (value: string) => void
 }) => {
   return (
-    <div className="h-fit">
+    <nav className="h-fit">
       <h2
         className={clsx(
           title
@@ -33,12 +31,12 @@ export const MenuTabs = ({
             key={index}
             type="button"
             onClick={() => {
-              setSelectedMenu(item.key)
+              setSelectedMenu(item.id)
             }}
             className={clsx(
               'border px-5',
-              selectedMenu === item.key
-                ? 'border-transparent bg-[#F0E74D] py-2 text-[#121212]'
+              selectedMenu === item.id
+                ? 'bg-primary text-dark border-transparent py-2'
                 : 'border-white py-2.5 text-white'
             )}
           >
@@ -46,37 +44,37 @@ export const MenuTabs = ({
           </button>
         ))}
       </ul>
-    </div>
+    </nav>
   )
 }
 
 export const MenuItem: MenuItemProps[] = [
   {
     name: 'Türk Rap',
-    key: 'Türk Rap',
+    id: 'Türk Rap',
   },
   {
     name: 'Yabancı Rap',
-    key: 'Yabancı Rap',
+    id: 'Yabancı Rap',
   },
   {
     name: 'Rap Haberleri',
-    key: 'Rap Haberleri',
+    id: 'Rap Haberleri',
   },
   {
     name: 'Haftanın Klipleri',
-    key: 'Haftanın Videoları',
+    id: 'Haftanın Videoları',
   },
   {
     name: 'Ayın Klipleri',
-    key: 'Ayın Videoları',
+    id: 'Ayın Videoları',
   },
   {
     name: 'Rap Sohbetleri',
-    key: 'Rap Sohbetleri',
+    id: 'Rap Sohbetleri',
   },
   {
     name: 'Rap Müsabakaları',
-    key: 'Rap Müsabakaları',
+    id: 'Rap Müsabakaları',
   },
 ]

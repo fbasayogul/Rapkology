@@ -4,6 +4,7 @@ import data from '@/data/data.json'
 import Link from 'next/link'
 import { Button } from '../Button'
 import clsx from 'clsx'
+import Image from 'next/image'
 
 export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
   const trend = data.filter((item) => item.attributes?.trends === false)
@@ -14,10 +15,9 @@ export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
       <div className="container">
         <div className="flex items-center gap-x-6">
           <h2 className="text-5xl font-bold text-white max-md:text-4xl">
-            {' '}
-            TRENDLER{' '}
+            TRENDLER
           </h2>
-          <img src="/icon/trend.svg" />
+          <Image src="/icon/trend.svg" alt="trend" width="52" height="33" />
         </div>
         <ul
           className={clsx(
@@ -27,7 +27,7 @@ export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
         >
           {trend.slice(0, trendCount).map((item, index) => (
             <li key={index} className="flex items-start gap-x-14">
-              <p className="text-5xl font-semibold text-[#2A2A2A]">
+              <p className="text-background-900 text-5xl font-semibold">
                 {index + 1 < 10 ? '0' : null}
                 {index + 1}
               </p>
@@ -35,6 +35,7 @@ export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
                 <div className="flex items-center gap-x-2">
                   <img
                     src={item.attributes.img}
+                    alt={item.attributes.title}
                     className="size-8 rounded-full bg-cover"
                   />
                   <p>{item.attributes.authors}</p>
@@ -43,7 +44,7 @@ export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
                   {item.attributes.title}
                 </h3>
                 <div className="mt-auto flex flex-col">
-                  <span className="h-px w-full bg-[#3B3B3B]" />
+                  <span className="bg-line h-px w-full" />
                   <Link
                     href={item.attributes.slug}
                     className="pt-5 text-base font-normal text-white"

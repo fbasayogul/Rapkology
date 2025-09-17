@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const ClipsBox = ({
@@ -21,9 +22,14 @@ export const ClipsBox = ({
           backgroundSize: 'cover',
         }}
       >
-        <img src="/icon/play-icon.svg" />
+        <Image
+          src="/icon/play-icon.svg"
+          alt="play-icon"
+          width="72"
+          height="72"
+        />
       </Link>
-      <p className="text-xl font-semibold uppercase">{title}</p>
+      <h3 className="text-xl font-semibold uppercase">{title}</h3>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import data from '@/data/data.json'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { ExploreBox } from '../ExploreBox'
 
 type Props = {
