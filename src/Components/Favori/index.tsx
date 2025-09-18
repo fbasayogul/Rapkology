@@ -8,7 +8,7 @@ export const Favori = () => {
   return (
     <section className="flex w-full justify-center pt-20">
       <div className="container flex flex-col items-center justify-center max-md:!pl-0">
-        <div className="w-full">
+        <div className="w-full pb-5">
           <div className="flex w-fit items-center gap-x-8 rounded-br-full bg-white py-9 pr-36 pl-24 max-md:py-5 max-md:pr-12 max-md:pl-12">
             <img
               src="/icon/youtube-logo.svg"
@@ -27,10 +27,10 @@ export const Favori = () => {
             Ayın <br className="min-md:hidden" />
             Favorileri
           </h2>
-          <ul className="[&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:bg-background-900 grid auto-cols-[274px] grid-flow-col gap-x-12 overflow-x-scroll overflow-y-hidden pb-10 max-md:w-2/3 md:flex md:w-1/2 md:items-center md:gap-x-12 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full">
+          <ul className="[&::-webkit-scrollbar-thumb]:bg-primary [&::-webkit-scrollbar-track]:bg-background-900 grid auto-cols-[290px] grid-flow-col gap-x-12 overflow-x-scroll overflow-y-hidden pb-10 max-md:w-2/3 md:flex md:w-1/2 md:items-center md:gap-x-12 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full">
             {favori.map((item, index) => (
               <li key={index} className="relative">
-                <div className="bg-background-900 relative flex w-[274px] shrink-0 items-center overflow-hidden max-md:flex max-md:h-full max-md:flex-col max-md:py-10 md:h-[264px]">
+                <div className="bg-background-900 relative flex w-[290px] shrink-0 items-center overflow-hidden max-md:flex max-md:h-full max-md:flex-col max-md:py-10 md:h-[264px]">
                   <div
                     className="h-[184px] w-[184px] shrink-0 -rotate-12 !bg-cover !bg-center !bg-no-repeat md:-ml-32"
                     style={{ background: `url('${item.attributes.img}')` }}

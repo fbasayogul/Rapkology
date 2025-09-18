@@ -3,16 +3,52 @@ import { Header } from '@/Components/Header'
 import { MoreContent } from '@/Components/MoreContent'
 import { Trends } from '@/Components/Trends'
 import data from '@/data/data.json'
+import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
-export default function BlogDetail() {
+type BlogDetailProps = {
+  params: { id: string }
+}
+
+export async function generateMetadata({
+  params,
+}: BlogDetailProps): Promise<Metadata> {
+  const blog = data.find((item) => item._id.toString() === params.id)
+
+  if (!blog) {
+    return {
+      title: 'Blog bulunamadı',
+      description: 'Aradığınız blog mevcut değil.',
+    }
+  }
+
+  return {
+    title: blog.attributes.seo?.metaTitle || blog.attributes.title,
+    description: blog.attributes.seo?.metaDescription || blog.attributes.desc,
+    alternates: {
+      canonical: blog.attributes.seo?.canonicalURL
+        ? `/blog/${blog.attributes.seo.canonicalURL}`
+        : undefined,
+    },
+  }
+}
+
+export default function BlogDetail({ params }: BlogDetailProps) {
+  const blog = data.find((item) => item._id.toString() === params.id)
+
+  if (!blog) {
+    return <div className="text-white">Blog bulunamadı</div>
+  }
   return (
     <section className="flex w-full flex-col items-center justify-center">
       <Header className="!relative" />
-      <div className="container grid grid-cols-12 gap-x-20 pt-16 max-lg:grid-cols-1">
+      <div className="container grid grid-cols-12 gap-x-20 pt-16 max-lg:grid-cols-1 max-md:pt-10">
         <div className="col-span-8 pb-20 max-lg:col-span-1">
           <div className="flex items-center gap-x-5 pb-9 text-sm text-white">
-            <p className="uppercase">Anasayfa</p>
+            <Link href={'/'} className="uppercase">
+              Anasayfa
+            </Link>
 
             <Image
               src="/icon/right-arrow2.svg"
@@ -22,7 +58,9 @@ export default function BlogDetail() {
               className="invert filter"
             />
 
-            <p className="uppercase">Blog</p>
+            <Link href={'/blog'} className="uppercase">
+              Blog
+            </Link>
             <Image
               src="/icon/right-arrow2.svg"
               alt="right-arrow2"
@@ -30,7 +68,9 @@ export default function BlogDetail() {
               height="9"
               className="invert filter"
             />
-            <p className="uppercase">LOREM IPSUM DOLOR ... AMET</p>
+            <p className="uppercase">
+              {blog.attributes.title.substring(0, 20)}
+            </p>
           </div>
           <div className="flex items-center gap-x-2.5">
             <Image src="/icon/eye.svg" alt="eye" width="21" height="16" />
@@ -39,23 +79,18 @@ export default function BlogDetail() {
           </div>
           <div className="flex flex-col gap-y-8 pt-8 pb-16">
             <h2 className="text-6xl font-semibold text-white uppercase max-md:text-4xl">
-              {data[0].attributes.title}
+              {blog.attributes.title}
             </h2>
             <h3 className="text-2xl font-semibold text-white max-md:text-xl">
-              {data[0].attributes.desc}
+              {blog.attributes.desc}
             </h3>
+            <img src={blog.attributes.img} alt={blog.attributes.title} />
             <p className="text-white max-md:text-sm">
-              {data[0].attributes.content}
+              {blog.attributes.content}
             </p>
-            <img src={data[0].attributes.img} alt={data[0].attributes.title} />
-            <p className="text-white max-md:text-sm">
-              {data[0].attributes.content}
-            </p>
-            <p className="text-white max-md:text-sm">
-              {data[0].attributes.content}
-            </p>
+
             <div className="flex items-center gap-x-3">
-              {data[0].attributes.tags.map((tag: string, index: number) => (
+              {blog.attributes.tags.map((tag: string, index: number) => (
                 <div className="bg-card p-2.5" key={index}>
                   <span>{tag}</span>
                 </div>

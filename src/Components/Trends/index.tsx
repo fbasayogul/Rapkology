@@ -26,7 +26,10 @@ export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
           )}
         >
           {trend.slice(0, trendCount).map((item, index) => (
-            <li key={index} className="flex items-start gap-x-14">
+            <li
+              key={index}
+              className="flex items-start gap-x-14 max-md:gap-x-8"
+            >
               <p className="text-background-900 text-5xl font-semibold">
                 {index + 1 < 10 ? '0' : null}
                 {index + 1}
@@ -46,7 +49,7 @@ export const Trends = ({ grid, count }: { grid?: string; count?: number }) => {
                 <div className="mt-auto flex flex-col">
                   <span className="bg-line h-px w-full" />
                   <Link
-                    href={item.attributes.slug}
+                    href={`/blog/${item._id}`}
                     className="pt-5 text-base font-normal text-white"
                   >
                     Daha Fazla Oku

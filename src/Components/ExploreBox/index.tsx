@@ -90,7 +90,7 @@ export const ExploreBox = ({
             </p>
             <span className="bg-line mt-6 h-px w-full" />
             <Link
-              href={item.attributes.slug}
+              href={`/blog/${item._id}`}
               className={clsx(
                 'mt-auto pt-5 text-base font-normal text-white',
                 list === 'list-2' ? '!mt-6' : null

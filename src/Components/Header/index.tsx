@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { Button } from '../Button'
 import clsx from 'clsx'
 import Image from 'next/image'
+import { useState } from 'react'
 
 interface MenuItem {
   name: string
@@ -9,6 +12,8 @@ interface MenuItem {
 }
 
 export const Header = ({ className }: { className?: string }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
   return (
     <header
       className={clsx(
@@ -49,14 +54,45 @@ export const Header = ({ className }: { className?: string }) => {
               className="max-lg:px-3 max-lg:py-2"
             />
           </div>
-          <button type="button" className="min-md:hidden">
+          <button
+            type="button"
+            className="py-2 min-md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             <Image
               src="/icon/menu-list.svg"
-              alt="trend"
+              alt="menu-list"
               width="32"
               height="14"
             />
           </button>
+          {isOpen && (
+            <div className="bg-dark border-dark-alt absolute top-20 right-5 z-[1000] flex w-full max-w-60 flex-col items-start justify-center border p-4">
+              <div className="flex w-full justify-end">
+                <button type="button" onClick={() => setIsOpen(false)}>
+                  <Image
+                    src="/icon/close.svg"
+                    alt="close"
+                    width="16"
+                    height="16"
+                  />
+                </button>
+              </div>
+              <ul className="flex w-full flex-col gap-y-4 pt-1.5 text-white *:w-full *:pb-1.5">
+                {MenuData.map((item, index) => (
+                  <li
+                    key={index}
+                    className="border-dark-alt border-b text-base font-medium text-white uppercase last:border-0 last:pb-0"
+                  >
+                    <Link href={item.link} className="block w-full">
+                      {' '}
+                      {item.name}{' '}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </header>
@@ -69,8 +105,8 @@ export const MenuData: MenuItem[] = [
     link: '/blog',
   },
   {
-    name: 'BLOG DETAY',
-    link: '/blog-detail',
+    name: 'ETKİNLİKLER',
+    link: '/etkinlikler',
   },
   {
     name: 'MÜZİKLER',

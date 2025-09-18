@@ -20,7 +20,7 @@ export const Clips = () => {
               key={index}
               background={item.attributes.img}
               title={item.attributes.title}
-              link={item.attributes.slug}
+              link={`/blog/${item._id}`}
             />
           ))}
         </div>

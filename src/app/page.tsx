@@ -22,7 +22,7 @@ export default function Home() {
       <Ads />
       <Trends />
       <Favori />
-      <section className="flex w-full justify-center pt-24 pb-40">
+      <section className="flex w-full justify-center pt-24">
         <div className="container">
           <div className="grid grid-cols-12 gap-x-8 max-lg:grid-cols-1 lg:gap-x-16">
             <div className="flex w-full items-center justify-between pb-10 min-lg:hidden">
@@ -136,6 +136,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   )
 }

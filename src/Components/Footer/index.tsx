@@ -1,3 +1,5 @@
+'use client'
+
 import clsx from 'clsx'
 import Link from 'next/link'
 import { MenuData } from '../Header'
@@ -56,13 +58,13 @@ export const Footer: React.FC<FooterProps> = ({
       className={clsx(
         'flex w-full justify-center pt-20 pb-14',
         className,
-        variant === 'mini' ? '!py-0' : null
+        variant === 'mini' ? '!pt-0 !pb-5' : null
       )}
     >
       <div
         className={clsx(
           'container grid max-lg:gap-y-10',
-          variant === 'mini' ? 'grid-cols-1' : 'grid-cols-2',
+          variant === 'mini' ? 'grid-cols-1' : 'grid-cols-2 max-lg:grid-cols-1',
           className
         )}
       >

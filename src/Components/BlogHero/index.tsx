@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import data from '@/data/data.json'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const BlogHero = () => {
   const trend = data.filter((item) => item.attributes?.trends === false)
@@ -20,24 +21,20 @@ export const BlogHero = () => {
           backgroundPosition: 'center, right',
         }}
       >
-        <div className="container pt-16">
+        <div className="container pt-16 max-md:pt-10">
           <div className="text-dark flex items-center gap-x-5 pb-9 text-sm max-md:hidden">
-            <p className="uppercase">Anasayfa</p>
-
+            <Link href={'/'} className="uppercase">
+              Anasayfa
+            </Link>
             <Image
               src="/icon/right-arrow2.svg"
               alt="right-arrow2"
               width="6"
               height="9"
             />
-            <p className="uppercase">Blog</p>
-            <Image
-              src="/icon/right-arrow2.svg"
-              alt="right-arrow2"
-              width="6"
-              height="9"
-            />
-            <p className="uppercase">LOREM IPSUM DOLOR ... AMET</p>
+            <Link href={'/blog'} className="uppercase">
+              Blog
+            </Link>
           </div>
           <h2 className="text-dark pb-6 text-6xl font-semibold max-md:hidden">
             BLOG
@@ -55,7 +52,10 @@ export const BlogHero = () => {
                 >
                   {trend.map((item, index) => (
                     <SwiperSlide key={index}>
-                      <div className="flex flex-col">
+                      <Link
+                        href={`/blog/${item._id}`}
+                        className="flex flex-col"
+                      >
                         <div className="relative">
                           <img
                             src={item.attributes.img}
@@ -79,7 +79,7 @@ export const BlogHero = () => {
                             {item.attributes.title}
                           </p>
                         </div>
-                      </div>
+                      </Link>
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -87,7 +87,8 @@ export const BlogHero = () => {
             </div>
             <div className="col-span-4 flex flex-col gap-y-6 max-xl:col-span-1 max-xl:grid max-xl:grid-cols-4 max-xl:gap-x-5 max-xl:pt-14 max-md:flex max-md:flex-col max-md:pt-5">
               {trend.slice(0, 4).map((item, index) => (
-                <div
+                <Link
+                  href={`/blog/${item._id}`}
                   className="flex items-center gap-x-5 gap-y-5 max-xl:flex-col max-xl:items-start max-md:flex-row"
                   key={index}
                 >
@@ -99,7 +100,7 @@ export const BlogHero = () => {
                   <p className="max-md:xl text-dark text-2xl font-semibold uppercase max-2xl:text-xl max-xl:text-lg max-sm:text-base max-sm:font-medium">
                     {item.attributes.title}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
