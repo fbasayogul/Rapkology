@@ -16,7 +16,7 @@ export default function Blog() {
 
   return (
     <main className="bg-dark">
-      <Header className="!bg-dark !relative !border-0" />
+      <Header className="!bg-dark !relative !border-transparent" />
       <BlogHero />
       <section
         className="flex w-full flex-col items-center justify-center bg-no-repeat pb-20"
